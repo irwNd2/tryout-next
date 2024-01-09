@@ -8,7 +8,7 @@ type LoginButtonProps = {
   asChild?: boolean;
 };
 
-export default function LoginButton({
+export function LoginButton({
   children,
   mode = "redirect",
   asChild = false,

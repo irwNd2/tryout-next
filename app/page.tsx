@@ -6,11 +6,11 @@ import { cn } from "@/lib/utils";
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
-import LoginButton from "@/components/auth/LoginButton";
+import { LoginButton } from "@/components/auth/LoginButton";
 
 const fonst = Poppins({
   subsets: ["latin"],
-  weight: "600",
+  weight: ["400", "700", "600"],
 });
 
 export default function Home() {
@@ -34,9 +34,19 @@ export default function Home() {
           <h1>Solusi Lulus Seleksi</h1>
           <h2 className='text-sky-600'>{titles[currentTitleIndex]}</h2>
         </div>
-        <div className='flex gap-2'>
+        <div className='flex flex-col max-w-xl text-gray-500'>
+          <p>Yakin udah siap menghadapi tes seleksi?</p>
+          <p>
+            Sini belajar bareng, biar kamu makin paham dan pede menghadapi tes
+            ujian.
+          </p>
+        </div>
+        <div className='flex gap-2 '>
           <LoginButton>
-            <Button className='bg-sky-600 hover:bg-sky-900' size='lg'>
+            <Button
+              className='bg-sky-600 font-semibold hover:bg-sky-900'
+              size='lg'
+            >
               Masuk
             </Button>
           </LoginButton>
@@ -44,6 +54,7 @@ export default function Home() {
             size='lg'
             variant='secondary'
             onClick={() => router.push("/register")}
+            className='font-semibold text-sky-600'
           >
             Daftar
           </Button>
