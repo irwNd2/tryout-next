@@ -27,6 +27,7 @@ export default function Home() {
     }, 2500);
     return () => clearInterval(interval);
   }, [titles.length]);
+
   return (
     <div className='relative flex flex-col min-h-screen'>
       <Navbar />

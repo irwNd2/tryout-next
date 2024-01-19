@@ -180,7 +180,7 @@ export const RegisterForm = () => {
               size='lg'
               className='w-full'
               disabled={isPending}
-              variant={isPending ? "secondary" : "default"}
+              variant={isPending ? "ghost" : "default"}
             >
               {isPending ? "Loading..." : "Daftar"}
             </Button>
