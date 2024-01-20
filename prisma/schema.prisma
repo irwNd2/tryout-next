@@ -9,10 +9,17 @@ datasource db {
   relationMode = "prisma"
 }
 
+enum UserRole {
+  ADMIN
+  FREEUSER
+  PAIDUSER
+}
+
 model User {
   id            String    @id @default(cuid())
   name          String?
   password      String?
+  role          UserRole  @default(FREEUSER)
   email         String?   @unique
   emailVerified DateTime?
   image         String?
