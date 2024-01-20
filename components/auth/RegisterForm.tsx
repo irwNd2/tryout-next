@@ -20,7 +20,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { FormError } from "@/components/FormError";
-import { FormSuccess } from "../FormSuccess";
+import { FormSuccess } from "@/components/FormSuccess";
 import { register } from "@/actions/register";
 import { useSearchParams } from "next/navigation";
 
@@ -33,7 +33,7 @@ export const RegisterForm = () => {
   const searchParams = useSearchParams();
   const urlError =
     searchParams.get("error") === "OAuthAccountNotLinked"
-      ? "Email telah digunakan. Silahkan login dengan metode lain"
+      ? "Email telah digunakan. Silahkan daftar dengan metode lain"
       : "";
   const [errror, setError] = useState<string | undefined>("");
   const [success, setSuccess] = useState<string | undefined>("");

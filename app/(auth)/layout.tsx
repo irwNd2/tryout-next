@@ -1,9 +1,4 @@
-import type { Metadata } from "next";
 
-export const metadata: Metadata = {
-  title: "Login - TryOut",
-  description: "Silahkan login menggunakan akun yang terdaftar",
-};
 export default function AuthLayout({
   children,
 }: {

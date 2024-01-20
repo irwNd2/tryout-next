@@ -48,3 +48,14 @@ model Account {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
+
+model VerificationToken {
+  id        String   @id @default(cuid())
+  token     String   @unique
+  email     String
+  expires  DateTime
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([email, token])
+}
