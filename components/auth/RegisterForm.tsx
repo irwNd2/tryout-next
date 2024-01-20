@@ -22,6 +22,7 @@ import { Button } from "@/components/ui/button";
 import { FormError } from "@/components/FormError";
 import { FormSuccess } from "../FormSuccess";
 import { register } from "@/actions/register";
+import { useSearchParams } from "next/navigation";
 
 const fonts = Poppins({
   subsets: ["latin"],
@@ -29,6 +30,11 @@ const fonts = Poppins({
 });
 
 export const RegisterForm = () => {
+  const searchParams = useSearchParams();
+  const urlError =
+    searchParams.get("error") === "OAuthAccountNotLinked"
+      ? "Email telah digunakan. Silahkan login dengan metode lain"
+      : "";
   const [errror, setError] = useState<string | undefined>("");
   const [success, setSuccess] = useState<string | undefined>("");
   const [isPending, startTransition] = useTransition();
@@ -173,7 +179,7 @@ export const RegisterForm = () => {
                 }}
               />
             </div>
-            <FormError message={errror} />
+            <FormError message={errror || urlError} />
             <FormSuccess message={success} />
             <Button
               type='submit'

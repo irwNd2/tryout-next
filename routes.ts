@@ -11,7 +11,7 @@ export const publicRoutes: string[] = ["/"];
  * @type {string[]} - Array of strings
  */
 
-export const authRoutes: string[] = ["/login", "/register"];
+export const authRoutes: string[] = ["/login", "/register", "/auth/error"];
 
 /**
  * Routes that are for authentication api

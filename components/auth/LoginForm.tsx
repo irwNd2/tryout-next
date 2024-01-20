@@ -8,6 +8,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { useState, useTransition } from "react";
+import { useSearchParams } from "next/navigation";
 
 import {
   Form,
@@ -29,6 +30,12 @@ const fonts = Poppins({
 });
 
 export const LoginForm = () => {
+  const searchParams = useSearchParams();
+  const urlError =
+    searchParams.get("error") === "OAuthAccountNotLinked"
+      ? "Email telah digunakan. Silahkan login dengan metode lain"
+      : "";
+
   const [errror, setError] = useState<string | undefined>("");
   const [success, setSuccess] = useState<string | undefined>("");
   const [isPending, startTransition] = useTransition();
@@ -116,7 +123,7 @@ export const LoginForm = () => {
                 }}
               />
             </div>
-            <FormError message={errror} />
+            <FormError message={errror || urlError} />
             <FormSuccess message={success} />
             <Button
               type='submit'
