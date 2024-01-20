@@ -25,6 +25,11 @@ export const {
   signOut,
 } = NextAuth({
   callbacks: {
+    async signIn({ user }) {
+      const existingUser = await getUserById(user.id as string);
+      if (!existingUser || !existingUser.emailVerified) return false;
+      return true;
+    },
     async session({ session, token }: { token?: JWT; session: Session }) {
       if (token?.sub && session.user) {
         session.user.id = token?.sub;
